@@ -9,7 +9,9 @@ export default {
 export const Default = (args) => <BookmarkGroupCard {...args} />;
 
 Default.args = {
-  title: "A Visual History of Nobel Prize Winners",
-  count: "10",
-  bookmarkLink: "",
+  bookmarkGroup: {
+    name: "A Visual History of Nobel Prize Winners",
+    count: "10",
+    link: "",
+  },
 };

@@ -5,15 +5,16 @@ import { Context } from "../../AppContext";
 import RemoveBookmarkButton from "../Buttons/RemoveBookmarkButton";
 import BookmarkButton from "../Buttons/BookmarkButton";
 
-export default function Resource({ resource }) {
+export default function Resource({ resource, isBookmarksPage, bookmarkGroup }) {
   const { bookmarks } = useContext(Context);
   const isBookmarked = bookmarks.find((bookmark) => {
     return bookmark.url === resource.url;
   });
-  const icon = isBookmarked ? (
-    <RemoveBookmarkButton resource={resource} />
+
+  const icon = isBookmarksPage ? (
+    <RemoveBookmarkButton bookmark={resource} bookmarkGroup={bookmarkGroup} />
   ) : (
-    <BookmarkButton resource={resource} />
+    <BookmarkButton resource={resource} bookmarkGroup={bookmarkGroup} />
   );
 
   return (

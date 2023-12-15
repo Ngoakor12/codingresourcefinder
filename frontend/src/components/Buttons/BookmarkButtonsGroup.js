@@ -6,9 +6,9 @@ import { bookmarkIcon } from "../../svgs";
 export default function BookmarkButtonsGroup() {
   const { addBookmark } = useContext(Context);
 
-  function handleClick() {
-    addBookmark(resource.url);
-  }
+  // function handleClick() {
+  //   addBookmark(resource.url);
+  // }
   return (
     <div className="bookmark-buttons-group">
       <button

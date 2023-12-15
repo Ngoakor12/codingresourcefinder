@@ -23,43 +23,17 @@ async function updateResources(database, resources = []) {
   );
   console.log("Run getCurrentCollectionName");
   const collectionName = getCurrentCollectionName();
-  console.log(`Successfully got collection name: ${collectionName}`);
-
-  try {
-    console.log("Run insertMany on collection");
-    await database.collection(collectionName).insertMany(formattedResources);
-    console.log("Successfully ran insertMany");
-  } catch (error) {
-    console.log(`Error running insertMany: ${error}`);
-  }
+  await database.collection(collectionName).insertMany(formattedResources);
 }
 
-async function main() {
-  console.log("---In main---");
+/* Uncomment and run to update to the latest resources */
 
-  let client;
-
-  try {
-    console.log("Connect to db");
-    client = await connectToDb();
-    const db = client.db();
-    console.log("Successfully connected to db");
-
-    console.log("Run getAllResources");
-    const resources = await getAllResources();
-    console.log("Successfully ran getAllResources");
-    console.log(
-      `Run updateResources. Number of resources: ${resources.length}`
-    );
-    await updateResources(db, resources);
-    console.log("Successfully ran updateResources");
-  } catch (error) {
-    console.log(`Error: ${error}`);
-  } finally {
-    closeDb(client);
-    // prevent node from hanging
-    process.exit(0);
-  }
-}
-
-main();
+// let db;
+// connectToDb(async (err) => {
+//   if (!err) {
+//     db = await getDb();
+//     getAllResources().then((res) => {
+//       updateResources(db, res);
+//     });
+//   }
+// });

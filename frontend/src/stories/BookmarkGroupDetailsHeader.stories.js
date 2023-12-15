@@ -12,17 +12,17 @@ Default.args = {
   heading: "All bookmarks",
   bookmarkGroups: [
     {
-      title: "All bookmarks",
+      name: "All bookmarks",
       count: 10,
       link: "",
     },
     {
-      title: "Frontend revision",
+      name: "Frontend revision",
       count: 4,
       link: "",
     },
     {
-      title: "React native",
+      name: "React native",
       count: 7,
       link: "",
     },

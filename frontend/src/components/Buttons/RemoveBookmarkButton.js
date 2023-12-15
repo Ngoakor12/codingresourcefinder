@@ -4,11 +4,11 @@ import { useContext } from "react";
 import { Context } from "../../AppContext";
 import { removeBookmarkIcon } from "../../svgs";
 
-export default function RemoveBookmarkButton({ resource }) {
+export default function RemoveBookmarkButton({ bookmark, bookmarkGroup }) {
   const { removeBookmark } = useContext(Context);
 
   function handleClick() {
-    removeBookmark(resource.url);
+    removeBookmark({ bookmark, bookmarkGroup });
   }
 
   return (
